@@ -9,11 +9,11 @@ describe('Automation Exercise', () => {
         cy.get('a[href="/login"]').click()
         cy.get('.login-form h2').contains('Login to your account').should('be.visible')
 
-        cy.get('[data-qa="login-email"]').type('qa-tester@tester.com.br')
+        cy.get('[data-qa="login-email"]').type('aut@dario.com')
         cy.get('[data-qa="login-password"]').type('123456', {log: false})
         cy.get('[data-qa="login-button"]').click()
 
-        cy.get('header a').contains(`Logged in as ${name}`).should('be.visible')
+        cy.get('header a').contains(`Logged in as Teste`).should('be.visible')
         cy.get('a[href="/delete_account"]').click()
         cy.get('.container h2').contains('Account Deleted!').should('be.visible')
     });
