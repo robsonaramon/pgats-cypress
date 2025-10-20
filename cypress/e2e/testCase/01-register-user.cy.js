@@ -6,6 +6,7 @@ describe('Automation Exercise', () => {
         const name = 'QA Tester'
 
         cy.visit('https://automationexercise.com/')
+        cy.url().should('eq', 'https://automationexercise.com/')
 
         cy.get('a[href="/login"]').click()
         cy.get('.signup-form h2').contains('New User Signup!').should('be.visible')
@@ -34,7 +35,7 @@ describe('Automation Exercise', () => {
         cy.get('[data-qa="mobile_number"]').type('11987654321')
         
         cy.get('[data-qa="create-account"]').click()
-                cy.get('.container h2').contains('Account Created!').should('be.visible')
+        cy.get('.container h2').contains('Account Created!').should('be.visible')
 
         cy.get('[data-qa="continue-button"]').click()
         cy.get('header a').contains(`Logged in as ${name}`).should('be.visible')
